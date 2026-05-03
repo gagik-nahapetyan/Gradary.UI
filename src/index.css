@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 30% 97%;
+    --foreground: 25 25% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 25 25% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 25% 10%;
+    --primary: 38 65% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 38 20% 93%;
+    --secondary-foreground: 25 25% 15%;
+    --muted: 38 20% 93%;
+    --muted-foreground: 30 10% 45%;
+    --accent: 38 50% 90%;
+    --accent-foreground: 25 25% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 38 20% 88%;
+    --input: 38 20% 88%;
+    --ring: 38 65% 42%;
+    --radius: 0.5rem;
+    --sidebar-background: 40 30% 97%;
+    --sidebar-foreground: 25 25% 10%;
+    --sidebar-primary: 38 65% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 38 50% 90%;
+    --sidebar-accent-foreground: 25 25% 10%;
+    --sidebar-border: 38 20% 88%;
+    --sidebar-ring: 38 65% 42%;
+  }
+
+  .dark {
+    --background: 25 20% 8%;
+    --foreground: 40 25% 93%;
+    --card: 25 20% 10%;
+    --card-foreground: 40 25% 93%;
+    --popover: 25 20% 10%;
+    --popover-foreground: 40 25% 93%;
+    --primary: 38 65% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 25 15% 18%;
+    --secondary-foreground: 40 25% 85%;
+    --muted: 25 15% 18%;
+    --muted-foreground: 35 10% 55%;
+    --accent: 25 15% 18%;
+    --accent-foreground: 40 25% 85%;
+    --destructive: 0 62.8% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 25 15% 20%;
+    --input: 25 15% 20%;
+    --ring: 38 65% 48%;
+    --sidebar-background: 25 20% 8%;
+    --sidebar-foreground: 40 25% 93%;
+    --sidebar-primary: 38 65% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 25 15% 18%;
+    --sidebar-accent-foreground: 40 25% 85%;
+    --sidebar-border: 25 15% 20%;
+    --sidebar-ring: 38 65% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
