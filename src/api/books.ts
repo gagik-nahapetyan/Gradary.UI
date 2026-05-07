@@ -6,8 +6,11 @@ export interface BooksParams extends PagedRequest {
 }
 
 export const booksApi = {
-  getAll: (params: BooksParams) =>
-    apiClient.get<PagedList<BookListDto>>('/api/books', { params }).then((r) => r.data),
+  getAll: async ({ categoryId, ...params }: BooksParams) => {
+    const url = categoryId ? `/api/books/category/${categoryId}` : '/api/books'
+    const { data } = await apiClient.get<PagedList<BookListDto>>(url, { params })
+    return data
+  },
 
   getById: (id: number) =>
     apiClient.get<BookDto>(`/api/books/${id}`).then((r) => r.data),

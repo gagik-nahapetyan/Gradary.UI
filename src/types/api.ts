@@ -67,9 +67,10 @@ export interface BookDto {
   subtitle?: string
   description?: string
   authorId: number
-  categoryId: number
   authorName?: string
+  categoryId: number
   categoryName?: string
+  imageUrl?: string
 }
 
 export interface BookListDto {

@@ -142,11 +142,13 @@ export function BooksPage() {
                   >
                     <TableCell>
                       {book.imageUrl ? (
-                        <img
-                          src={booksApi.getImageUrl(book.id)}
-                          alt={book.title}
-                          className="h-12 w-9 rounded object-cover"
-                        />
+                        <div className="h-12 w-9 rounded overflow-hidden shrink-0">
+                          <img
+                            src={booksApi.getImageUrl(book.id)}
+                            alt={book.title}
+                            className="h-full w-full object-cover"
+                          />
+                        </div>
                       ) : (
                         <div className="h-12 w-9 rounded bg-muted" />
                       )}

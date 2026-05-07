@@ -1,5 +1,5 @@
 import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
-import { BookOpen, Users, BookMarked, List, User, Menu, LogOut, LogIn } from 'lucide-react'
+import { BookOpen, User, Menu, LogOut, LogIn } from 'lucide-react'
 import { useState } from 'react'
 import { useAuth } from '@/hooks/useAuth'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'

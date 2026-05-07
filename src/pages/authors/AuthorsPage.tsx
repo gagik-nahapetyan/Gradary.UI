@@ -105,11 +105,13 @@ export function AuthorsPage() {
                   >
                     <TableCell>
                       {author.imageUrl ? (
-                        <img
-                          src={authorsApi.getImageUrl(author.id)}
-                          alt={author.fullName}
-                          className="h-10 w-10 rounded-full object-cover"
-                        />
+                        <div className="h-10 w-10 rounded-full overflow-hidden shrink-0">
+                          <img
+                            src={authorsApi.getImageUrl(author.id)}
+                            alt={author.fullName}
+                            className="h-full w-full object-cover"
+                          />
+                        </div>
                       ) : (
                         <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center text-xs font-semibold text-muted-foreground">
                           {author.fullName.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase()}

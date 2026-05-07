@@ -5,7 +5,6 @@ import { toast } from 'sonner'
 import { useAuthor, useAuthorBooks, useUploadAuthorImage } from '@/hooks/useAuthors'
 import { useAuth } from '@/hooks/useAuth'
 import { authorsApi } from '@/api/authors'
-import { PageHeader } from '@/components/shared/PageHeader'
 import { Pagination } from '@/components/shared/Pagination'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -153,11 +152,13 @@ export function AuthorDetailPage() {
                 >
                   <TableCell>
                     {book.imageUrl ? (
-                      <img
-                        src={`${import.meta.env.VITE_API_BASE_URL}${book.imageUrl}`}
-                        alt={book.title}
-                        className="h-12 w-9 rounded object-cover"
-                      />
+                      <div className="h-12 w-9 rounded overflow-hidden shrink-0">
+                        <img
+                          src={`${import.meta.env.VITE_API_BASE_URL}${book.imageUrl}`}
+                          alt={book.title}
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
                     ) : (
                       <div className="h-12 w-9 rounded bg-muted" />
                     )}

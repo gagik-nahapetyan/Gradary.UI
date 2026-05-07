@@ -1,13 +1,12 @@
 import { useState } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
-import { Pencil, Plus, Trash2, Check } from 'lucide-react'
+import { useParams, Link } from 'react-router-dom'
+import { Plus, Trash2, Check } from 'lucide-react'
 import { toast } from 'sonner'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import {
   useCollection,
-  useUpdateCollection,
   useAddBookToCollection,
   useUpdateCollectionBook,
   useRemoveBookFromCollection,
@@ -17,7 +16,6 @@ import { PageHeader } from '@/components/shared/PageHeader'
 import { ConfirmDialog } from '@/components/shared/ConfirmDialog'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 import {
   Dialog,
@@ -54,7 +52,6 @@ import {
   COLLECTION_STATUS_LABELS,
   ITEM_STATUS_LABELS,
   type BookCollectionItemStatus,
-  type BookCollectionStatus,
 } from '@/types/api'
 
 const statusVariant: Record<BookCollectionItemStatus, 'default' | 'info' | 'success' | 'secondary' | 'warning'> = {
@@ -74,7 +71,6 @@ type AddBookValues = z.infer<typeof addBookSchema>
 export function CollectionDetailPage() {
   const { id } = useParams<{ id: string }>()
   const collectionId = Number(id)
-  const navigate = useNavigate()
 
   const [addDialogOpen, setAddDialogOpen] = useState(false)
   const [editStatusBookId, setEditStatusBookId] = useState<number | null>(null)
@@ -82,16 +78,15 @@ export function CollectionDetailPage() {
   const [removeBookId, setRemoveBookId] = useState<number | null>(null)
 
   const { data: collection, isLoading } = useCollection(collectionId)
-  const { data: booksData } = useBooks({ page: 1, pageSize: 200 })
+  const { data: booksData } = useBooks({ page: 1, pageSize: 100 })
 
-  const updateCollection = useUpdateCollection(collectionId)
   const addBook = useAddBookToCollection(collectionId)
   const updateBook = useUpdateCollectionBook(collectionId)
   const removeBook = useRemoveBookFromCollection(collectionId)
 
   const addForm = useForm<AddBookValues>({
     resolver: zodResolver(addBookSchema),
-    defaultValues: { bookId: 0, status: 'WantToRead', position: (collection?.items.length ?? 0) + 1 },
+    defaultValues: { bookId: 0, status: 'WantToRead', position: 1 },
   })
 
   const handleAddBook = async (values: AddBookValues) => {
