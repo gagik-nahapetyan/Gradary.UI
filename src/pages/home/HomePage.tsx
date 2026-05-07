@@ -149,11 +149,11 @@ export function HomePage() {
               <Link to="/books">Browse Collection</Link>
             </Button>
             {isAuthenticated ? (
-              <Button asChild size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/10 px-8">
+              <Button asChild size="lg" variant="outline" className="bg-transparent border-white/40 text-white hover:bg-white/10 px-8">
                 <Link to="/collections">My Collections</Link>
               </Button>
             ) : (
-              <Button asChild size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/10 px-8">
+              <Button asChild size="lg" variant="outline" className="bg-transparent border-white/40 text-white hover:bg-white/10 px-8">
                 <Link to="/register">Join Free</Link>
               </Button>
             )}
