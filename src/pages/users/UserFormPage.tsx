@@ -40,7 +40,6 @@ const editSchema = z.object({
 })
 
 type CreateValues = z.infer<typeof createSchema>
-type EditValues = z.infer<typeof editSchema>
 
 const ROLES: UserRole[] = ['Admin', 'Librarian', 'Member']
 
